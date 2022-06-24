@@ -1,5 +1,5 @@
 import { Splide, SplideSlide,SplideTrack } from '@splidejs/react-splide';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '@splidejs/react-splide/css';
 
 // or other themes
@@ -9,13 +9,22 @@ import '@splidejs/react-splide/css/sea-green';
 // or only core styles
 import '@splidejs/react-splide/css/core';
 
-const Slider = () => {
-    
+const Slider = (props) => {
+     const [width,setwidth]=useState(0);
+     const [heigth,setheigth]=useState(0); 
+
+     useEffect(()=>{
+      // if(window.innerWidth>400 && window.innerWidth<700){
+        setwidth(150);
+        setheigth(100);
+      //  }
+     },[])
+
       var thumbnails = {
         type:'loop',
         rewind          : true,
-        fixedWidth      : 190,
-        fixedHeight     : 188,
+        fixedWidth      :width,
+        fixedHeight     : heigth,
         isNavigation    : true,
         gap             : 10,
         focus           : 'center',
@@ -28,8 +37,8 @@ const Slider = () => {
         },
         breakpoints : {
           640: {
-            fixedWidth  : 66,
-            fixedHeight : 38,
+            fixedWidth  : width,
+            fixedHeight :heigth,
           },
         },
       } ;
@@ -44,7 +53,7 @@ const Slider = () => {
     
 
 
-<h1 className='text-pink-500 ml-[630px] text-[35px] font-serif'>Sponsor</h1>
+<h1 className='ml-[300px] text-pink-500 xl:ml-[630px] sm:ml-[240px] text-[35px] font-serif md:ml-[200px]' >Sponsor</h1>
 <Splide hasTrack={ false } options={thumbnails}
 //   {
 //     type:'loop',

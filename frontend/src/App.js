@@ -1,7 +1,12 @@
-import Main from "./components/main";
+
+import { useEffect } from "react";
+import Router from "./components/routes/router";
 
 export default function App() {
+
   return (
-    <Main/>
+    <div className="App">
+    <Router/>
+    </div>
     )
 }
